@@ -1,42 +1,17 @@
 def is_voter(age, citizenship, criminal_status):
-    if age >= 18:
-        print("Возраст соответствует требованиям.")
+    return age >= 18 and citizenship and not criminal_status
+
+def enter_data():
+    age = int(input("Введите ваш возраст: "))
+    citizenship = input("Являетесь ли вы гражданином? (Да/Нет) ").lower() == "да"
+    criminal_status = input("Имеется ли у вас уголовное наказание? (Да/Нет) ").lower() == "да"
+    output_result(age, citizenship, criminal_status)
+
+def output_result(age, citizenship, criminal_status):
+    if is_voter(age, citizenship, criminal_status):
+        print("Вы можете голосовать!")
     else:
-        print("Возраст не соответствует требованиям.")
-        return False
+        print("Вы не можете голосовать.")
 
-    if citizenship == True:
-        print("Вы являетесь гражданином.")
-    else:
-        print("Вы не являетесь гражданином.")
-        return False
+enter_data()
 
-    if not criminal_status:
-        print("У вас нет уголовного наказания.")
-    else:
-        print("У вас есть уголовное наказание.")
-        return False
-
-    return True
-
-
-age = int(input("Введите ваш возраст: "))
-citizenship = input("Являетесь ли вы гражданином? (Да/Нет) ")
-criminal_status = input("Имеется ли у вас уголовное наказание? (Да/Нет) ")
-
-if citizenship in ['Да', 'да']:
-    citizen = True
-else:
-    citizen = False
-
-if criminal_status in ['Нет', 'нет']:
-    criminal = False
-else:
-    criminal = True
-
-result = is_voter(age, citizen, criminal)
-
-if result:
-    print("Вы можете голосовать!")
-else:
-    print("Вы не можете голосовать.")
