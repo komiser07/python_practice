@@ -9,18 +9,12 @@ def max_of_two_num(a, b):
         return b
 
 
-a = int(input("Введите первое число:"))
-b = int(input("Введите второе число:"))
-
-x = max_of_two_num(a, b)
-
-
 def empty_function():
     pass
 
 
 def even_nums(n):
-    for i in range(n):
+    for i in range(n + 1):
         if i % 2 == 0:
             yield i
 
@@ -30,6 +24,10 @@ def test_max_of_two_num():
     assert max_of_two_num(-1, 1) == 1, "Ошибка: неправильное значение для различных пар"
     assert max_of_two_num(65, 64) == 65, "Ошибка: неправильное значение для различных пар"
 
+
+a = int(input("Введите первое число:"))
+b = int(input("Введите второе число:"))
+x = max_of_two_num(a, b)
 
 test_max_of_two_num()
 
