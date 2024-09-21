@@ -34,9 +34,11 @@ def main():
     overall_average /= len(students)
     print(f"Общий средний балл: {overall_average:}")
 
-    students.append({'name': 'Коловрат', 'grades': [80, 75, 90, 85]})
+    new_student = {'name': 'Коловрат', 'grades': [80, 75, 90, 85]}
+    new_student['average'] = calculate_average(new_student['grades'])
+    students.append(new_student)
 
-    min_student = min(students, key=lambda s: student['average'])
+    min_student = min(students, key=lambda s: s['average'])
     students.remove(min_student)
 
     print("\n\nНовые данные после добавления и удаления:")
