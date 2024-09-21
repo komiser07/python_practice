@@ -32,7 +32,7 @@ def main():
         print(format_student_info(student))
 
     overall_average /= len(students)
-    print(f"Общий средний балл: {overall_average:.2f}")
+    print(f"Общий средний балл: {overall_average:}")
 
     students.append({'name': 'Коловрат', 'grades': [80, 75, 90, 85]})
 
