@@ -59,4 +59,5 @@ display_books()
 issue_book("Путешествия Гулливера")
 display_books()
 
-
+return_book("Путешествия Гулливера")
+display_books()
