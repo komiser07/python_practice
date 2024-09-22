@@ -1,8 +1,5 @@
 library = {}
 
-def add_book(title, author, year, availability):
-    library[title] = {"author": author, "year": year, "availability": availability}
-
 def display_books():
     for title, book_details in library.items():
         print(f"title: {title}")
