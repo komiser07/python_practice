@@ -7,3 +7,5 @@ def display_books():
         print(f"year: {book_details['year']}")
         print(f"availability: {book_details['availability']}")
         print()
+
+display_books()
