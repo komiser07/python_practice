@@ -6,13 +6,7 @@ def add_book(title, author, year):
         choice = input("Книга '" + title + "' уже существует. Обновить информацию? (Y/N): ")
         if choice.upper() == 'Y':
             book_details = library[title]
-            library[title] = {"author": author, "year": year}
-            if 'availability' in book_details and book_details['availability'] == 'в наличии':
-                book_details["availability"] = 'выдана'
-            elif 'availability' in book_details and book_details['availability'] == 'выдана':
-                book_details["availability"] = 'в наличии'
-            elif 'availability' not in book_details or book_details['availability'] == 'None':
-                book_details["availability"] = 'в наличии'
+            library[title] = {"author": author, "year": year, "availability": book_details["availability"] }
             print(f"Информация о книге '{title}' обновлена.")
         else:
             print("Отменено обновление.")
