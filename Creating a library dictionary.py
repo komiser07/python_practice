@@ -5,8 +5,8 @@ def add_book(title, author, year, availability):
 
 def display_books():
     for title, book_details in library.items():
-        print(f"Название: {title}")
-        print(f"Автор: {book_details['author']}")
-        print(f"Год издания: {book_details['year']}")
-        print(f"Наличие: {book_details['availability']}")
+        print(f"title: {title}")
+        print(f"author: {book_details['author']}")
+        print(f"year: {book_details['year']}")
+        print(f"availability: {book_details['availability']}")
         print()
