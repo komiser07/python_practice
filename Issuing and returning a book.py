@@ -17,10 +17,8 @@ def add_book(title, author, year):
 
 def issue_book(title):
     if title in library:
-        book_details = library[title]
-        if book_details['availability'] == 'в наличии' or book_details['availability'] == 'None':
-            book_details["availability"] = "выдана"
-            library[title] = "выдана"
+        if library[title]['availability'] == 'в наличии' or library[title] == 'None':
+            library[title]['availability'] = "выдана"
             print(f"Книга '{title}' успешно выдана.")
         else:
             print(f"Книга '{title}' уже выдана.")
@@ -30,7 +28,7 @@ def issue_book(title):
 
 def return_book(title):
     if title in library:
-        if library[title] == 'выдана':
+        if library[title]['availability'] == 'выдана':
             library[title] = "в наличии"
             print(f"Книга '{title}' успешно возвращена.")
         else:
@@ -62,8 +60,8 @@ add_book("Думай и богатей", "Наполеон Хилл", 1937)
 
 display_books()
 
-issue_book("Путешествия Гулливера")
+issue_book("Думай и богатей")
 display_books()
 
-return_book("Путешествия Гулливера")
+return_book("Думай и богатей")
 display_books()
