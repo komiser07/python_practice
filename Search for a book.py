@@ -7,7 +7,7 @@ def add_book(title, author, year):
         if choice.upper() == 'Y':
             book_details = library[title]
             library[title] = {"author": author, "year": year, "availability": book_details["availability"]}
-            print(f"Информация о книге '{title}' обновлена.")
+            print(f"Информация о книге '{title}' обновлена.\n")
         else:
             print("Отменено обновление.")
     else:
@@ -24,16 +24,16 @@ def find_book(title):
         print(f"Year of publication: {book_details['year']}")
         print(f"Availability: {book_details['availability']}\n")
     else:
-        print(f"Книга '{title}' не найдена.")
+        print(f"Книга '{title}' не найдена.\n")
 
 
 def issue_book(title):
     if title in library:
         if library[title]['availability'] == 'выдана':
-            print(f"Книга '{title}' уже выдана.")
+            print(f"Книга '{title}' уже выдана.\n")
         else:
             library[title]['availability'] = 'выдана'
-            print(f"Книга '{title}' успешно выдана.")
+            print(f"Книга '{title}' успешно выдана.\n")
     else:
         print(f"Книга '{title}' не найдена.")
 
@@ -41,10 +41,10 @@ def issue_book(title):
 def return_book(title):
     if title in library:
         if library[title]['availability'] == 'в наличии':
-            print(f"Книга '{title}' доступна к выдаче.")
+            print(f"Книга '{title}' доступна к выдаче.\n")
         else:
             library[title]['availability'] = "в наличии"
-            print(f"Книга '{title}' успешно возвращена.")
+            print(f"Книга '{title}' успешно возвращена.\n")
     else:
         print(f"Книга '{title}' не найдена.")
 
