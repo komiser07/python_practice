@@ -29,18 +29,22 @@ def find_book(title):
 
 def issue_book(title):
     if title in library:
-        book_details = library[title]
-        book_details["availability"] = "выдана"
-        print(f"Книга '{title}' успешно выдана.\n")
+        if library[title]['availability'] == 'выдана':
+            print(f"Книга '{title}' уже выдана.")
+        else:
+            library[title]['availability'] = 'выдана'
+            print(f"Книга '{title}' успешно выдана.")
     else:
         print(f"Книга '{title}' не найдена.")
 
 
 def return_book(title):
     if title in library:
-        book_details = library[title]
-        book_details["availability"] = "в наличии"
-        print(f"Книга '{title}' успешно возвращена.\n")
+        if library[title]['availability'] == 'в наличии':
+            print(f"Книга '{title}' доступна к выдаче.")
+        else:
+            library[title]['availability'] = "в наличии"
+            print(f"Книга '{title}' успешно возвращена.")
     else:
         print(f"Книга '{title}' не найдена.")
 
