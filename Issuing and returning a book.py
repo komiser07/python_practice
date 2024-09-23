@@ -18,9 +18,10 @@ def add_book(title, author, year):
 def issue_book(title):
     if title in library:
         if library[title]['availability'] == 'выдана':
-            library[title]['availability'] = "нет в наличии"
+            library[title]['availability'] = "в наличии"
             print(f"Книга '{title}' уже выдана.")
         else:
+            library[title]['availability'] = 'выдана'
             print(f"Книга '{title}' успешно выдана.")
     else:
         print(f"Книга '{title}' не найдена.")
@@ -29,9 +30,10 @@ def issue_book(title):
 def return_book(title):
     if title in library:
         if library[title]['availability'] == 'в наличии':
-            library[title] = "уже выдана"
+            library[title]['availability'] = "выдана"
             print(f"Книга '{title}' доступна к выдаче.")
         else:
+            library[title]['availability'] = "в наличии"
             print(f"Книга '{title}' успешно возвращена.")
     else:
         print(f"Книга '{title}' не найдена.")
