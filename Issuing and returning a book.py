@@ -17,22 +17,22 @@ def add_book(title, author, year):
 
 def issue_book(title):
     if title in library:
-        if library[title]['availability'] == 'в наличии' or library[title] == 'None':
-            library[title]['availability'] = "выдана"
-            print(f"Книга '{title}' успешно выдана.")
-        else:
+        if library[title]['availability'] == 'выдана':
+            library[title]['availability'] = "нет в наличии"
             print(f"Книга '{title}' уже выдана.")
+        else:
+            print(f"Книга '{title}' успешно выдана.")
     else:
         print(f"Книга '{title}' не найдена.")
 
 
 def return_book(title):
     if title in library:
-        if library[title]['availability'] == 'выдана':
-            library[title] = "в наличии"
-            print(f"Книга '{title}' успешно возвращена.")
+        if library[title]['availability'] == 'в наличии':
+            library[title] = "уже выдана"
+            print(f"Книга '{title}' доступна к выдаче.")
         else:
-            print(f"Книга '{title}' уже доступна.")
+            print(f"Книга '{title}' успешно возвращена.")
     else:
         print(f"Книга '{title}' не найдена.")
 
@@ -59,6 +59,9 @@ add_book("Преступление и наказание", "Фёдор Дост�
 add_book("Думай и богатей", "Наполеон Хилл", 1937)
 
 display_books()
+
+
+
 
 issue_book("Думай и богатей")
 display_books()
