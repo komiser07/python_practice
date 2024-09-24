@@ -1,24 +1,47 @@
-num1 = int(input("Введите первое число: "))
-num2 = int(input("Введите второе число: "))
-print("Результат сложения: ", num1 + num2)
+class ToDoList:
+    def __init__(self):
+        self._tasks = []
 
-num1 = int(input("Введите первое число: "))
-num2 = int(input("Введите второе число: "))
-print("Результат вычитания: ", num1 - num2)
+    def add_task(self, task):
+        self._tasks.append(task)
 
-num1 = int(input("Введите первое число: "))
-num2 = int(input("Введите второе число: "))
-print("Результат умножения: ", num1 * num2)
+    def complete_task(self, task):
+        try:
+            index = self._tasks.index(task)
+            self._tasks[index] = task + " (выполнено)"
+        except ValueError as e:
+            print(f"Задача {task} не найдена.")
 
-num1 = input("Введите первое число: ")
-num2 = input("Введите второе число: ")
-try:
-    print("Результат деления: ", int(num1) / int(num2))
-except ValueError:
-    print("Ошибка: введено не число!")
-except ZeroDivisionError:
-    print("Ошибка деления на ноль!")
-finally:
-    print("Завершение работы программы.")
+    def remove_task(self, task):
+        try:
+            index = self._tasks.index(task)
+            self._tasks.pop(index)
+        except ValueError as e:
+            print(f"Задача {task} не найдена.")
+
+    def list_tasks(self):
+        for task in self._tasks:
+            if "выполнено" in task:
+                print(f"- {task}")
+            else:
+                print(f"+ {task}")
 
 
+def main():
+    todo_list = ToDoList()
+
+    tasks = ["Купить хлеб", "Заплатить за интернет", "Позвонить другу"]
+
+    for task in tasks:
+        todo_list.add_task(task)
+
+    todo_list.complete_task("Заплатить за интернет")
+    todo_list.complete_task("Позвонить другу")
+
+    todo_list.remove_task("Заплатить за интернет")
+
+    todo_list.list_tasks()
+
+
+if __name__ == "__main__":
+    main()
