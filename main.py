@@ -46,8 +46,6 @@ def main():
 
     todo_list.list_tasks()
 
-    todo_list.list_tasks()
-
-
+    
 if __name__ == "__main__":
     main()
