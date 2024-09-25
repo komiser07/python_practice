@@ -4,20 +4,22 @@ class ToDoList:
 
     def add_task(self, task):
         self._tasks.append(task)
+        print(f"Задача {task} добавлена.\n")
 
     def complete_task(self, task):
-        try:
+        if task in self._tasks:
             index = self._tasks.index(task)
             self._tasks[index] = task + " (выполнено)"
-        except ValueError as e:
-            print(f"Задача {task} не найдена. Ошибка: {e}")
+        else:
+            print(f"Задача {task} не найдена.\n")
 
     def remove_task(self, task):
         if task in self._tasks:
             index = self._tasks.index(task)
             self._tasks.pop(index)
+            print(f"Задача {task} удалена.\n")
         else:
-            print(f"Задача {task} не найдена.")
+            print(f"Задача {task} не найдена.\n")
 
     def list_tasks(self):
         for task in self._tasks:
@@ -35,10 +37,14 @@ def main():
     for task in tasks:
         todo_list.add_task(task)
 
+    todo_list.list_tasks()
+
+    todo_list.remove_task("Позвонить другу")
+
     todo_list.complete_task("Заплатить за интернет")
     todo_list.complete_task("Позвонить другу")
 
-    todo_list.remove_task("Заплатить за интернет")
+    todo_list.list_tasks()
 
     todo_list.list_tasks()
 
