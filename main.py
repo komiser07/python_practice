@@ -41,11 +41,13 @@ def main():
 
     todo_list.remove_task("Позвонить другу")
 
+    todo_list.list_tasks()
+
     todo_list.complete_task("Заплатить за интернет")
     todo_list.complete_task("Позвонить другу")
 
     todo_list.list_tasks()
 
-    
+
 if __name__ == "__main__":
     main()
