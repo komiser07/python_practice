@@ -10,21 +10,21 @@ class ToDoList:
             index = self._tasks.index(task)
             self._tasks[index] = task + " (выполнено)"
         except ValueError as e:
-            print(f"Задача {task} не найдена.")
+            print(f"Задача {task} не найдена. Ошибка: {e}")
 
     def remove_task(self, task):
-        try:
+        if task in self._tasks:
             index = self._tasks.index(task)
             self._tasks.pop(index)
-        except ValueError as e:
+        else:
             print(f"Задача {task} не найдена.")
 
     def list_tasks(self):
         for task in self._tasks:
             if "выполнено" in task:
-                print(f"- {task}")
-            else:
                 print(f"+ {task}")
+            else:
+                print(f"- {task}")
 
 
 def main():
