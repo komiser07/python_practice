@@ -8,12 +8,18 @@ class ToDoList:
         print(f"Задача {task} добавлена.")
 
     def complete_task(self, task):
-        self._completed_tasks[task] = True
+        if task in self._tasks:
+            self._completed_tasks[task] = True
+        else:
+            print(f"Задача {task} не найдена.")
 
     def remove_task(self, task):
-        self._tasks.remove(task)
-        self._completed_tasks.pop(task, None)
-        print(f"Задача {task} удалена.")
+        if task in self._tasks:
+            self._tasks.remove(task)
+            self._completed_tasks.pop(task, None)
+            print(f"Задача {task} удалена.")
+        else:
+            print(f"Задача {task} не найдена.")
 
     def list_tasks(self):
         status = "[ ]"
