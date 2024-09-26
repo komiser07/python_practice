@@ -14,6 +14,7 @@ class ToDoList:
         self._tasks.remove(task)
         self._completed_tasks.pop(task, None)
         print(f"Задача {task} удалена.")
+
     def list_tasks(self):
         status = "[ ]"
         for task in self._tasks:
