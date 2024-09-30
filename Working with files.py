@@ -16,5 +16,5 @@ with open('data.txt', 'r') as file:
         print(line.strip())
 
 with open('data.txt', 'rb') as source:
-    with open('copy_of_data.txt', 'wb') as destination:
-        destination.write(source.read())
+    with open('copy_of_data.txt', 'wb') as copy_file:
+        copy_file.write(source.read())
