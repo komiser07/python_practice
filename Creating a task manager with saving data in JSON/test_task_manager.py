@@ -9,7 +9,6 @@ class TestTaskManager(unittest.TestCase):
     def test_add_and_complete_task(self):
         self.task_manager.add_task("выполнить задачу ")
         self.task_manager.complete_task(0)
-        completed_task = self.task_manager._tasks[0]
         self.assertTrue(self.task_manager._tasks[0]['completed'])
 
     def test_remove_task(self):
