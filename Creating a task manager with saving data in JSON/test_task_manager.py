@@ -13,7 +13,6 @@ class TestTaskManager(unittest.TestCase):
         self.assertEqual(completed_task["completed"], True)
 
     def test_remove_task(self):
-        self.task_manager.add_task("выполнить задачу ")
         self.task_manager.remove_task(0)
         self.assertEqual(len(self.task_manager._tasks), 0)
 
