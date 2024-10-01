@@ -1,6 +1,6 @@
 import unittest
-import json
 from task_manager import TaskManager
+
 
 class TestTaskManager(unittest.TestCase):
     def setUp(self):
@@ -24,6 +24,7 @@ class TestTaskManager(unittest.TestCase):
         saved_tasks = self.task_manager._tasks
         loaded_tasks = loaded_task_manager._tasks
         self.assertCountEqual(saved_tasks, loaded_tasks)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -34,8 +34,8 @@ manager.add_task("Выполнить задачу №2")
 manager.add_task("Выполнить задачу №3")
 
 manager.complete_task(0)
-manager.complete_task(1)
-manager.remove_task(0)
+manager.complete_task(2)
+manager.remove_task(1)
 
 manager.save_to_json("tasks.json")
 
