@@ -16,6 +16,7 @@ class TaskManager:
     def remove_task(self, index):
         if 0 <= index < len(self._tasks):
             self._tasks.pop(index)
+            print(f"Задача с индексом {index} удалена.")
         else:
             print(f"Задача с индексом {index} не найдена.")
 
@@ -32,8 +33,8 @@ manager.add_task("Выполнить задачу №1")
 manager.add_task("Выполнить задачу №2")
 manager.add_task("Выполнить задачу №3")
 
+manager.complete_task(5)
 manager.complete_task(1)
-manager.complete_task(0)
 manager.remove_task(0)
 
 manager.save_to_json("tasks.json")
